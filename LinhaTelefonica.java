@@ -15,6 +15,12 @@ public class LinhaTelefonica{
 	public String getNumero (){
 		return this.numero;
 	}
+	public void setCliente (cliente cli){
+		this.cliente = cli;
+	}
+	public cliente getCliente (){
+		return this.cliente;
+	}
 	public String toString (){
 		String aux = "";
 		aux +="NUMERO: "+this.numero+"\nCLIENTE "+this.cliente;
