@@ -9,7 +9,7 @@ public class Pos extends LinhaTelefonica{
 	public void setFaturas (Fatura[] fat){
 		this.faturas = fat;
 	}
-	public Fatura getFatura (){
+	public Fatura[] getFatura (){
 		return this.faturas;
 	}
 	public String toString (){
