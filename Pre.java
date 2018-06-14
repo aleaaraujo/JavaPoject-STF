@@ -2,6 +2,10 @@ public class Pre extends LinhaTelefonica {
 
 	private Saldo saldo;
 	
+	public Pre (Saldo sal, String num, Cliente cli, Chamada cha){
+		super(num,cli,cha);
+		this.saldo = sal;
+	}
 	public void setSaldo (Saldo saldo){
 		this.saldo = saldo;
 	}
@@ -15,8 +19,13 @@ public class Pre extends LinhaTelefonica {
 		return aux;
 	}
 	public boolean recarregar (double valor){
-		
-		return true ;
+		if (valor>=1){
+			this.saldo.setValor(valor);
+			//this.saldo.
+			return true;
+		}else{
+			return false;
+		}	
 	}
 		
 
