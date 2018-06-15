@@ -4,10 +4,10 @@ public class LinhaTelefonica{
 	private Cliente cliente;
 	private Chamada[] chamadas;
 	
-	public LinhaTelefonica (String numero,Cliente cliente,Chamada cham){
+	public LinhaTelefonica (String numero,Cliente cliente){
 		this.numero = numero;
 		this.cliente = cliente;
-		this.chamada = cham;
+		this.chamada = new Chamadas[10];
 	}
 	public void setNumero (String numero){
 		this.numero = numero;
@@ -33,8 +33,7 @@ public class LinhaTelefonica{
 		System.out.println ("Informe o Numero :");
 		String num = ler.lerString();
 		Cliente c =new Cliente();
-		Chamada cha = new Chamada;
-		return new LinhaTelefonica (num, c, cha);
+		return new LinhaTelefonica (num, c);
 	}
 	public static LinhaTelefonica pesquisarLinha (String numero, LinhaTelefonica[] Linhas){
 		for (int i=0;i<linhas.length;i++){
