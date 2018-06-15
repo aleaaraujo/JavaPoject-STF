@@ -2,8 +2,12 @@ public class Saldo {
 	
 	private float valor;
 	private Calendar vencimento;
-
-	public void setValor (double v){
+	
+	public Saldo (float v, Calendar ven){
+		this.valor = v;
+		this.vencimento = ven;
+	}
+	public void setValor (float v){
 		this.valor = v;
 	}
 	public float getValor (){
