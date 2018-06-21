@@ -5,7 +5,7 @@ public class Chamada {
 	private LinhaTelefonica destinatario;
 	private double custo;
 
-	public Chamada (int trans,Calendar hor,LinhaTelefonica dest, double custo){
+	public Chamada (int trans,LinhaTelefonica dest, double custo){
 		this.transmissaoId = trans;
 		this.horario = hor;
 		this.destinatario = dest;
