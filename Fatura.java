@@ -1,3 +1,4 @@
+import java.util.Calendar
 public class Fatura {
 
 	private int faturaId;
@@ -5,6 +6,12 @@ public class Fatura {
 	private Calendar dataFinal;
 	private double valor;
 
+	public Fatura (int id, Calendar dIn, Calendar dFim, double v){
+		this.faturaId = id;
+		this.dataInicial = dIn;
+		this.dataFinal = dFim;
+		this.valor = v;
+	}
 	public void setFaturaId (int id){
 		this.faturaId = id;
 	}
