@@ -55,19 +55,21 @@ public class LinhaTelefonica{
 		// se puder, então aqui dentro devemos fazer this.chamadas receber esse objeto.
 		return true;
 	}
-	public boolean chamar(String destinatario, String conteudo){
-		int id;
-		double c; ;
-		// Verificação do tamanho to texto
-		//em seguida, é necessario verificar se a conta que esta realizando a chamada possui créditos o suficiente.
-		if(conteudo.length <= Utilitario.comprimentoChamadaTexto){
-			c = conteudo.length * Utilitario.custoChamadaTexto;
-			Texto t = new Texto();
-			// podemos fazer construtor sobrecarregato aqui tbm?
-			// Verificar os .length
+	public boolean chamar(String destinatario, String conteudo, LinhaTelefonica[] Linhas){
+		int id, i;
+		double custo;
+		LinhaTelefonica linhaDestinatario;
+		Calendar horario = Calendar.getInstance();
+		for(i=0; i<Linhas.length; i++){
+			if(destinatario.equals(Linhas[i].getNumero == TRUE){
+				linhaDestinatario = Linhas[i];
+			}
 		}
-		else {
-			System.out.println("Conteudo muito longo!");
+		if(linhaDestinatario.getNumero != NULL){
+			custo = (conteudo.length() / Utilitario.comprimentoTexto)*Utilitaro.custoChamadaTexto;
+			Texto t = new Texto(,horario, linhaDestinatario, custo, conteudo); // FALTA O NUMERO ALEATORIO
+		} else{
+			System.out.println("Numero Inexixtente!");
 		}
 		return true;
 	}
