@@ -1,18 +1,26 @@
+import java.util.Calendar;
 public class Fatura {
 
 	private int faturaId;
 	private Calendar dataInicial;
 	private Calendar dataFinal;
-	private double valor;
+	private float valor;
+	
+	public Fatura (int faturaId, Calendar dataInicial, Calendar dataFinal, float valor){ //construtor
+		this.faturaId = faturaId;
+		this.dataInicial = dataInicial;
+		this.dataFinal = dataFinal;
+		this.valor = valor;
+	}
 
-	public void setFaturaId (int id){
-		this.faturaId = id;
+	public void setFaturaId (int faturaId){
+		this.faturaId = faturaId;
 	}
 	public int getFaturaId (){
 		return this.faturaId;
 	}
-	public void setDataInicial (Calendar dInicio){
-		this.dataInicial =dInicio;
+	public void setDataInicial (Calendar dataInicial){
+		this.dataInicial =dataInicial;
 	}
 	public Calendar getDataInicial (){
 		return this.dataInicial;
@@ -23,10 +31,10 @@ public class Fatura {
 	public Calendar getDataFinal (){
 		return this.dataFinal;
 	}
-	public void setValor (double v){
-		this.valor  = v;
+	public void setValor (float valor){
+		this.valor  = valor;
 	}
-	public double getValor (){
+	public float getValor (){
 		return this.valor;
 	}
 	public String toString (){

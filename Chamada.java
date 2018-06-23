@@ -1,27 +1,40 @@
+import java.util.Calendar;
 public class Chamada {
 	
 	private int transmissaoId;
-	private Calendar horario; //  ?
+	private Calendar horario; 
 	private LinhaTelefonica destinatario;
-	private double custo;
+	private float custo;
 
-	public Chamada (int trans,Calendar hor,LinhaTelefonica dest, double custo){
-		this.transmissaoId = trans;
-		this.horario = hor;
-		this.destinatario = dest;
+	public Chamada (int transmissaoId, Calendar horario, LinhaTelefonica destinatario, float custo){
+		this.transmissaoId = transmissaoId;
+		this.horario = horario;
+		this.destinatario = destinatario;
 		this.custo = custo;
 	}
-	public void setTransmissaoId (int id){
-		this.transmissaoId = id;
+	public void setTransmissaoId (int transmissaoId){
+		this.transmissaoId = transmissaoId;
 	}
 	public int getTransmissaoId (){
 		return this.trasmissaoId;
 	}
-	public void setCusto (double custo){
+	public void setCusto (float custo){
 		this.custo = custo;
 	}
-	public double getCusto (){
+	public float getCusto (){
 		return this.custo;
+	}
+	public void setHorario(Calendar horario){
+		this.horario = horario;
+	}
+	public Calendar getHorario(){
+		return this.horario;
+	}
+	public void setDestinatario(LinhaTelefonica destinatario){
+		this.destinatario = destinatario;
+	}
+	public LinhaTelefonica getDestinatario(){
+		return this.destinatario;
 	}
 
 	public String toString (){
