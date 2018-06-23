@@ -1,3 +1,4 @@
+import java.util.Calendar;
 public class LinhaTelefonica{
 	
 	private String numero;
@@ -15,11 +16,14 @@ public class LinhaTelefonica{
 	public String getNumero (){
 		return this.numero;
 	}
-	public void setCliente (cliente cli){
-		this.cliente = cli;
+	public void setCliente (Cliente cliente){
+		this.cliente = cliente;
 	}
 	public cliente getCliente (){
 		return this.cliente;
+	}
+	public Chamada[] getChamada(){
+		return this.chamadas;
 	}
 	public String toString (){
 		String aux = "";
@@ -32,12 +36,12 @@ public class LinhaTelefonica{
 		Leitura ler = new Leitura();
 		System.out.println ("Informe o Numero :");
 		String num = ler.lerString();
-		Cliente c =new Cliente();
+		Cliente c =Cliente.criar();
 		return new LinhaTelefonica (num, c);
 	}
 	public static LinhaTelefonica pesquisarLinha (String numero, LinhaTelefonica[] Linhas){
 		for (int i=0;i<linhas.length;i++){
-			if((linhas[i].numero).equals(numero)){ 
+			if((linhas[i].getNumero()).equals(numero)){ 
 				return Linhas[i];
 			}
 		}
