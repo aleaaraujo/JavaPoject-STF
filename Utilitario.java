@@ -3,8 +3,8 @@ public class Utilitario {
     //Atributos
 	public static final int comprimentoChamdaTexto = 144; // Variável estática final com a quantidade de caracteres limite de cada bloco de chamada de texto
 	public static final int vencimentoRecarga = 90; 
-	public static double custoChamadaVoz;	
-	public static double custoChamadaTexto;
+	public static float custoChamadaVoz;	
+	public static float custoChamadaTexto;
 
 	//Construtor
 	public Utilitario(double custoChamadaVoz, double custoChamadaTexto) {
