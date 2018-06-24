@@ -1,29 +1,41 @@
 import java.io.*;
 public class Leitura{
 
-	public String lerString(){
+	public static String lerString(){
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader ler = new BufferedReader (isr);
-
-		String var = "";
+		String var = "-1";
 		try {	
 			var = ler.readLine();
 		}catch(IOException err){
-			System.out.println ("deu erro!!");
+			var = "-1";
 		}
+		finally {
+			return var;
+		}
+	}
 
-		return var;
+	public static int lerInt(){
+		try {
+			return Integer.parseInt(lerString());
+		} catch(NumberFormatException err) {
+			return -1;
+		}
 	}
-	public int lerInt(){	
-		return Integer.parseInt(lerString());	
-	}	
-	public double lerDouble(){
-		return Double.parseDouble(lerString());	
+
+	public static double lerDouble(){
+		try {
+			return Double.parseDouble(lerString());
+		} catch(NumberFormatException err) {
+			return -1;
+		}
 	}
-	public float lerFloat(){
-		return Float.parseFloat(lerString());
-	}
-	public boolean lerBoolean(){
-		return Boolean.parseBoolean(lerString());
+
+	public static float lerFloat(){
+		try {
+			return Float.parseFloat(lerString());
+		} catch(NumberFormatException err) {
+			return (float) -1;
+		}
 	}
 }
