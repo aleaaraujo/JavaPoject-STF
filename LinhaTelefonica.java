@@ -5,10 +5,10 @@ public class LinhaTelefonica{
 	private Cliente cliente;
 	private Chamada[] chamadas;
 	
-	public LinhaTelefonica (String numero,Cliente cliente){
+	public LinhaTelefonica (String numero, Cliente cliente){
 		this.numero = numero;
 		this.cliente = cliente;
-		this.chamada = new Chamadas[10];
+		this.chamadas = new Chamada[10];
 	}
 	public void setNumero (String numero){
 		this.numero = numero;
@@ -36,7 +36,7 @@ public class LinhaTelefonica{
 		Leitura ler = new Leitura();
 		System.out.println ("Informe o Numero :");
 		String num = ler.lerString();
-		Cliente c =Cliente.criar();
+		Cliente c = Cliente.criar();
 		return new LinhaTelefonica (num, c);
 	}
 	public static LinhaTelefonica pesquisarLinha (String numero, LinhaTelefonica[] Linhas){
@@ -48,32 +48,31 @@ public class LinhaTelefonica{
 		return null;
 	// tem que testar	
 	}
-	public boolean chamar(String destinatario){
-		// Duração deve receber valor aleatório.
-		int duracao;
-		int id;
-		double c = duracao * Utilitario.custoChamadaVoz;
-		Voz v = new Voz();
-		// podemos colocar construtor carregado?
-		// o vetor chamadas desta classe pode receber objetos que herdaram dela? No caso pre e pos.
-		// se puder, então aqui dentro devemos fazer this.chamadas receber esse objeto.
-		return true;
+	public boolean chamar(String destinatario, LinhaTelefonica[] linhas){ // chamadas de voz
+		if (pesquisarLinha(destinatario, linhas)){// testar
+			LinhaTelefonica dest = pesquisarLinha(destinatario, linhas);
+			Calendar horario = Calendar.getInstance();
+			int transmissaoId = (Integer.parseInt(destinatario))%100+1;
+			Calendar termino = Calendar.getInstance(); 
+			long horaInicial = horario.getTimeInMillis();
+			long horaFinal = termino.getTimeInMillis();
+			float custo = (horaFinal-horaInicial) * Utilitario.custoChamadaVoz;//falta atribuir valor a variavel estatica
+			Voz voz = new Voz(transmissaoId, horario, dest, custo, termino);
+			return true;
+		}
+		return false;
+
 	}
-	public boolean chamar(String destinatario, String conteudo){
-		int id;
-		double c; ;
-		// Verificação do tamanho to texto
-		//em seguida, é necessario verificar se a conta que esta realizando a chamada possui créditos o suficiente.
-		if(conteudo.length <= Utilitario.comprimentoChamadaTexto){
-			c = conteudo.length * Utilitario.custoChamadaTexto;
-			Texto t = new Texto();
-			// podemos fazer construtor sobrecarregato aqui tbm?
-			// Verificar os .length
+	public boolean chamar(String destinatario, String conteudo, LinhaTelefonica[] linhas){ // chamadas de texto sms
+		if (pesquisarLinha(destinatario, linhas)){// tem que testar
+			LinhaTelefonica dest = pesquisarLinha(destinatario, linhas);
+			Calendar horario = Calendar.getInstance();
+			int transmissaoId = (Integer.parseInt(destinatario))%100+1;
+			float custo = conteudo.length() * custoChamdaTexto; // incompleto
+			Texto texto = new Texto(transmissaoId, horario, dest, custo, conteudo);
+			return true;
 		}
-		else {
-			System.out.println("Conteudo muito longo!");
-		}
-		return true;
+		return false;
 	}
 	
 }
