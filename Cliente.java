@@ -37,7 +37,7 @@ public class Cliente{
 		return aux;		
 	}
 	public static Cliente criar(){
-		Leitura ler = new Leitura;
+		Leitura ler = new Leitura();
 		System.out.println ("Informe a ID do Cliente :");
 		int id = ler.lerInt();
 		System.out.println ("Informe o CPF do Cliente :");
