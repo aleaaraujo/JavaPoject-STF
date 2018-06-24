@@ -20,4 +20,10 @@ public class Leitura{
 	public double lerDouble(){
 		return Double.parseDouble(lerString());	
 	}
+	public float lerFloat(){
+		return Float.parseFloat(lerString());
+	}
+	public boolean lerBoolean(){
+		return Boolean.parseBoolean(lerString());
+	}
 }
