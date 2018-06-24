@@ -7,7 +7,7 @@ public class Utilitario {
 	public static float custoChamadaTexto;
 
 	//Construtor
-	public Utilitario(double custoChamadaVoz, double custoChamadaTexto) {
+	public Utilitario(float custoChamadaVoz, float custoChamadaTexto) {
 	    Utilitario.custoChamadaVoz = custoChamadaVoz;
 	    Utilitario.custoChamadaTexto = custoChamadaTexto;
 	}
