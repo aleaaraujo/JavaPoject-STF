@@ -1,19 +1,22 @@
+
 public class Endereco{
-	
+	//Atributos
 	private String rua;
 	private int numero;
 	private String cep;
 	private String cidade;
-	private String estado;    // metodo construtor mesmo nome da classe e nao retorna nada
-	
+	private String estado;
+
+	//Construtor
 	public Endereco(String rua,int numero,String cep,String cidade,String estado){
-		this.rua =rua;
-		this.numero= numero;
-		this.cep=cep;
-		this.cidade=cidade;
-		this.estado=estado;
+		this.rua = rua;
+		this.numero = numero;
+		this.cep = cep;
+		this.cidade = cidade;
+		this.estado = estado;
 	}
-	
+
+	//Sets/Gets
 	public void setRua(String rua){
 		this.rua = rua;
 	}
@@ -27,6 +30,7 @@ public class Endereco{
 		return this.numero;
 	}
 	public void setCep(String cep){
+		cep = cep.replaceAll("[^\\w]", "");
 		this.cep = cep;
 	}
 	public String getCep(){
@@ -44,31 +48,145 @@ public class Endereco{
 	public String getEstado(){
 		return this.estado;
 	}
-	public String toString(){
-		String aux ="";
-		aux ="Rua: "+this.rua+"\nNumero: "+this.numero+"\nCEP: "+this.cep +"\nCidade: "+ this.cidade+"\nUF: "+this.estado;
-		return aux; 
+
+	//Métodos
+
+	public static Endereco criar() {
+		String rua = "";
+		String cep = "";
+		String cidade = "";
+		String estado =" ";
+		String UF[] = {"AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"};
+		int numero = 0;
+		int cont = 0;
+		int op;
+		int i;
+		boolean flag = true;
+		boolean flag2 = true;
+		String varLerString;
+		int varLerInt;
+
+		do{
+			System.out.println ("\nInforme a Rua/Av onde vc mora: ");
+			varLerString = Leitura.lerString();
+			if(varLerString.equals("-1")) {
+				System.out.printf("\nErro de leitura! Por favor, entre com o endereço novamente.\n");
+				cont++;
+				if(cont == 3) {
+					System.out.printf("Erro no Sistema de Leitura! Saindo...");
+					System.exit(1);
+				}
+				continue;
+			} else {
+				rua = varLerString;
+			}
+
+			System.out.println ("Informe o numero da residência: ");
+			varLerInt = Leitura.lerInt();
+			if(varLerInt == -1) {
+				System.out.printf("\nErro de leitura! Por favor, entre com o endereço novamente.\n");
+				cont++;
+				if(cont == 3) {
+					System.out.printf("Erro no Sistema de Leitura! Saindo...");
+					System.exit(1);
+				}
+				continue;
+			} else {
+				numero = varLerInt;
+			}
+
+			System.out.println ("Informe a sigla do Estado (Ex: PR): ");
+			varLerString = Leitura.lerString();
+			if(varLerString.equals("-1")) {
+				System.out.printf("\nErro de leitura! Por favor, entre com o endereço novamente.\n");
+				cont++;
+				if(cont == 3) {
+					System.out.printf("Erro no Sistema de Leitura! Saindo...");
+					System.exit(1);
+				}
+				continue;
+			} else {
+				varLerString= varLerString.toUpperCase();
+				if(varLerString.length() > 2){
+					System.out.printf("\nEstado Inexistente! Por favor, entre com o endereço novamente.\n");
+					continue;
+				}
+				for(i = 0; i < UF.length; i++) {
+					if(UF[i].equals(varLerString)) {
+						estado = varLerString;
+					}
+				}
+				if(i == UF.length) {
+					System.out.printf("\nEstado Inexistente! Por favor, entre com o endereço novamente.\n");
+					continue;
+				}
+			}
+
+			System.out.println ("Informe o nome da Cidade ");
+			varLerString = Leitura.lerString();
+			if(varLerString.equals("-1")) {
+				System.out.printf("\nErro de leitura! Por favor, entre com o endereço novamente.\n");
+				cont++;
+				if(cont == 3) {
+					System.out.printf("Erro no Sistema de Leitura! Saindo...");
+					System.exit(1);
+				}
+				continue;
+			} else {
+				try{
+					Double.parseDouble(varLerString);
+					System.out.printf("\nNome de Cidade inválido! Por favor, entre com o endereço novamente.\n");
+					continue;
+				}catch (NumberFormatException err) {
+					cidade = varLerString;
+				}
+			}
+
+			System.out.println ("Informe o seu CEP ");
+			varLerString = Leitura.lerString();
+			if(varLerString.equals("-1")) {
+				System.out.printf("\nErro de leitura! Por favor, entre com o endereço novamente.\n");
+				cont++;
+				if(cont == 3) {
+					System.out.printf("Erro no Sistema de Leitura! Fechando o programa...");
+					System.exit(1);
+				}
+				continue;
+			} else {
+                if(varLerString.length() < 8) {
+                    System.out.printf("\nCEP Incorreto! Por favor, entre com o endereço novamente.\n");
+                    continue;
+                }
+				varLerString = varLerString.replaceAll("[^\\w]", "");
+				cep = varLerString;
+			}
+
+			while(flag2) { //loop infinito intencional
+                System.out.printf("\nOs dados acima estão corretos?\n Digite 1 -> p/ Sim ou 2 -> p/ Não\n Opção: ");
+                op = Leitura.lerInt();
+                switch(op) {
+                    case 1:
+                        flag2 = false;
+                        flag = false;
+                    break;
+
+                    case 2:
+                        System.out.printf("\nInsira novamente os dados!\n");
+                        flag2 = false;
+                    break;
+
+                    default:
+                        System.out.printf("\nOpção Inválida!\n");
+                }
+			}
+		}while(flag);
+
+		return new Endereco(rua,numero,cep,cidade,estado);
 	}
 
-	public static  Endereco criar(){
-		Leitura in = new Leitura();
-		
-		System.out.println ("Informe a Rua onde vc mora ");
-		String rua = in.lerString();
-		System.out.println ("Informe o numero da casa ");
-		int num = in.lerInt();
-		System.out.println ("Informe o nome do Estado");
-		String est = in.lerString();
-		System.out.println ("Informe o nome da Cidade ");
-		String cid = in.lerString();
-		System.out.println ("Informe o seu CEP ");
-		String cep = in.lerString();
-			
-		return new Endereco(rua,num,cep,cid,est);
-	}	
-
- 
-
-
-
+	//ToString
+	@Override
+	public String toString() {
+	  return String.format("Endereço: %s | N: %d | CEP: %s-%s | Cidade: %s | Estado: %s |", this.rua, this.numero, this.cep.substring(0,5), this.cep.substring(5,8), this.cidade, this.estado);
+	}
 }
