@@ -5,7 +5,7 @@ public class Texto extends Chamada {
 	
 	public Texto (int transmissaoId, Calendar horario, LinhaTelefonica destinatario, float custo, String conteudo){
 		super(transmissaoId, horario, destinatario, custo);
-		this.conteudo = cont;
+		this.conteudo = conteudo;
 	}
 	public void setConteudo (String conteudo){
 		this.conteudo = conteudo;
