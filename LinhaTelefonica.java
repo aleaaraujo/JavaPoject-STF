@@ -19,7 +19,7 @@ public class LinhaTelefonica{
 	public void setCliente (Cliente cliente){
 		this.cliente = cliente;
 	}
-	public cliente getCliente (){
+	public Cliente getCliente (){
 		return this.cliente;
 	}
 	public Chamada[] getChamada(){
@@ -28,7 +28,7 @@ public class LinhaTelefonica{
 	public String toString (){
 		String aux = "";
 		aux +="NUMERO: "+this.numero+"\nCLIENTE "+this.cliente;
-		aux +="\nCHAMADA: "+this.chamada;
+		aux +="\nCHAMADA: "+this.chamadas;
 		return aux;
 	}
 
@@ -39,17 +39,17 @@ public class LinhaTelefonica{
 		Cliente c = Cliente.criar();
 		return new LinhaTelefonica (num, c);
 	}
-	public static LinhaTelefonica pesquisarLinha (String numero, LinhaTelefonica[] Linhas){
+	public static LinhaTelefonica pesquisarLinha (String numero, LinhaTelefonica[] linhas){
 		for (int i=0;i<linhas.length;i++){
 			if((linhas[i].getNumero()).equals(numero)){ 
-				return Linhas[i];
+				return linhas[i];
 			}
 		}
 		return null;
 	// tem que testar	
 	}
 	public boolean chamar(String destinatario, LinhaTelefonica[] linhas){ // chamadas de voz
-		if (pesquisarLinha(destinatario, linhas)){// testar
+		if (destinatario.length()<=13 && destinatario.length() >0){
 			LinhaTelefonica dest = pesquisarLinha(destinatario, linhas);
 			Calendar horario = Calendar.getInstance();
 			int transmissaoId = (Integer.parseInt(destinatario))%100+1;
@@ -64,11 +64,11 @@ public class LinhaTelefonica{
 
 	}
 	public boolean chamar(String destinatario, String conteudo, LinhaTelefonica[] linhas){ // chamadas de texto sms
-		if (pesquisarLinha(destinatario, linhas)){// tem que testar
+		if (destinatario.length()<=13 && destinatario.length() >0){
 			LinhaTelefonica dest = pesquisarLinha(destinatario, linhas);
 			Calendar horario = Calendar.getInstance();
 			int transmissaoId = (Integer.parseInt(destinatario))%100+1;
-			float custo = conteudo.length() * custoChamdaTexto; // incompleto
+			float custo = (conteudo.length()) * Utilitario.custoChamadaTexto; // incompleto
 			Texto texto = new Texto(transmissaoId, horario, dest, custo, conteudo);
 			return true;
 		}
