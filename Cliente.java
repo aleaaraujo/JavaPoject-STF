@@ -37,13 +37,13 @@ public class Cliente{
 		return aux;		
 	}
 	public static Cliente criar(){
-		Leitura ler = new Leitura();
+		//Leitura ler = new Leitura();
 		System.out.println ("Informe a ID do Cliente :");
-		int id = ler.lerInt();
+		int id = Leitura.lerInt();
 		System.out.println ("Informe o CPF do Cliente :");
-		String cpf = ler.lerString();
+		String cpf = Leitura.lerString();
 		System.out.println ("Informe o nome do Cliente :");
-		String nome = ler.lerString();
+		String nome = Leitura.lerString();
 		Endereco end= Endereco.criar();
 		return new Cliente(id, cpf, nome, end);
 	}
