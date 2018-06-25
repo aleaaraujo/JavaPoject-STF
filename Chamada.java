@@ -16,7 +16,7 @@ public class Chamada {
 		this.transmissaoId = transmissaoId;
 	}
 	public int getTransmissaoId (){
-		return this.trasmissaoId;
+		return this.transmissaoId;
 	}
 	public void setCusto (float custo){
 		this.custo = custo;
