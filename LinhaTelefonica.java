@@ -49,7 +49,7 @@ public class LinhaTelefonica{
 	// tem que testar	
 	}
 	public boolean chamar(String destinatario, LinhaTelefonica[] linhas){ // chamadas de voz
-		if (destinatario.length()<=13 && destinatario.length() >0){
+		if (destinatario.length()<=13 & destinatario.length() >0){
 			LinhaTelefonica dest = pesquisarLinha(destinatario, linhas);
 			Calendar horario = Calendar.getInstance();
 			int transmissaoId = (Integer.parseInt(destinatario))%100+1;
@@ -64,11 +64,11 @@ public class LinhaTelefonica{
 
 	}
 	public boolean chamar(String destinatario, String conteudo, LinhaTelefonica[] linhas){ // chamadas de texto sms
-		if (destinatario.length()<=13 && destinatario.length() >0){
+		if (destinatario.length()<=13 & destinatario.length() >0){
 			LinhaTelefonica dest = pesquisarLinha(destinatario, linhas);
 			Calendar horario = Calendar.getInstance();
 			int transmissaoId = (Integer.parseInt(destinatario))%100+1;
-			float custo = (conteudo.length()) * Utilitario.custoChamadaTexto; // incompleto
+			float custo = ((conteudo.length())/Utilitario.comprimentoChamadaTexto) * Utilitario.custoChamadaTexto;
 			Texto texto = new Texto(transmissaoId, horario, dest, custo, conteudo);
 			return true;
 		}

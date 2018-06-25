@@ -14,9 +14,9 @@ public class Voz extends Chamada {
 		return this.termino;
 	}
 	public String toString (){
-		String aux = "";	
+		String aux ="";	
 		aux +=super.toString();
 		aux +="\nTERMINO: "+this.termino;		
-		retunr aux;
+		return aux;
 	}
 }
