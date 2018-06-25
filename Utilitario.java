@@ -1,6 +1,6 @@
 public class Utilitario {
     //Atributos
-    public static final int comprimentoChamdaTexto = 144; // Variável estática final com a quantidade de caracteres limite de cada bloco de chamada de texto
+    public static final int comprimentoChamadaTexto = 144; // Variável estática final com a quantidade de caracteres limite de cada bloco de chamada de texto
     public static final int vencimentoRecarga = 90;
     public static float custoChamadaVoz;
     public static float custoChamadaTexto;
@@ -43,6 +43,6 @@ public class Utilitario {
     //ToString
     @Override
     public String toString (){
-        return String.format("\nTamanho Máx. da Chamada de Texto: %-3d letras | Validade da Recarga: %-2d dias | Custo da Chamada de Voz: R$ %-2.2f/min | Custo da Chamada de Texto: R$ %-2.2f \n",comprimentoChamdaTexto, vencimentoRecarga, custoChamadaVoz, custoChamadaTexto);
+        return String.format("\nTamanho Máx. da Chamada de Texto: %-3d letras | Validade da Recarga: %-2d dias | Custo da Chamada de Voz: R$ %-2.2f/min | Custo da Chamada de Texto: R$ %-2.2f \n",comprimentoChamadaTexto, vencimentoRecarga, custoChamadaVoz, custoChamadaTexto);
     }
 }
