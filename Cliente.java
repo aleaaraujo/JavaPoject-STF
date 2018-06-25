@@ -4,6 +4,7 @@ public class Cliente{
 	private String cpf;
 	private String nome;
 	private Endereco endereco;
+	
 
 	public Cliente(int clienteId, String cpf, String nome, Endereco endereco) {
 		this.clienteId = clienteId;
@@ -28,6 +29,12 @@ public class Cliente{
 	}
 	public String getNome() {
 		return this.nome;
+	}
+	public Endereco getEndereco(){
+		return this.endereco;
+	}
+	public void setEndereco(Endereco endereco){
+		this.endereco = endereco;
 	}
 	public String toString (){
 		String aux = "";
@@ -109,7 +116,7 @@ public class Cliente{
             endereco = Endereco.criar();
 
             while(flag2) { //loop infinito intencional
-                System.out.printf("\nOs dados acima estão corretos?\n Digite 1 -> p/ Sim ou 2 -> p/ Não\n Opção: ");
+                System.out.printf("\nOs dados acima estao corretos?\n Digite 1 -> p/ Sim ou 2 -> p/ Nao\n Opcao: ");
                 op = Leitura.lerInt();
                 switch(op) {
                     case 1:
@@ -123,7 +130,7 @@ public class Cliente{
                         break;
 
                     default:
-                        System.out.printf("\nOpção Inválida!\n");
+                        System.out.printf("\nOpcao Invalida!\n");
                 }
             }
         }while(flag);
