@@ -50,9 +50,10 @@ public class Pos extends LinhaTelefonica{
 					}
 				}
 				Fatura fat = new Fatura(1, dataInicial, dataFinal,valor);
+				return true;
 			}	
 		}
-		return true;
+		return false;
 	}
 	public void setFaturas (Fatura[] faturas){
 		this.faturas = faturas;
