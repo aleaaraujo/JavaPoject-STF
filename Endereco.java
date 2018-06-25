@@ -60,7 +60,8 @@ public class Endereco{
 		int numero = 0;
 		int cont = 0;
 		int i;
-		boolean flag = true;
+		boolean flagWhile = true;
+		boolean flagPesquisa = true;
 		String varLerString = "";
 		int varLerInt = 0;
 
@@ -112,11 +113,12 @@ public class Endereco{
 				for(i = 0; i < UF.length; i++) {
 					if(UF[i].equals(varLerString)) {
 						estado = varLerString;
+						flagPesquisa = false;
 					}
 				}
-				if(i == UF.length) {
-					System.out.printf("\nEstado Inexistente! Por favor, entre com o endereço novamente.\n");
-					continue;
+				if(flagPesquisa) {
+				 System.out.printf("\nEstado Inexistente! Por favor, entre com o endereço novamente.\n");
+				 continue;
 				}
 			}
 
@@ -159,9 +161,9 @@ public class Endereco{
 				cep = varLerString;
 			}
 
-			flag = false;
+			flagWhile = false;
 
-		}while(flag);
+		}while(flagWhile);
 
 		return new Endereco(rua,numero,cep,cidade,estado);
 	}
