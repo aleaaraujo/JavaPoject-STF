@@ -18,6 +18,35 @@ public class Pre extends LinhaTelefonica {
 		aux +="\nSALDO: "+this.saldo;
 		return aux;
 	}
+		public void setNumero (String numero){
+
+		super.setNumero(numero);
+
+	}
+
+	public String getNumero(){
+
+		return super.getNumero();
+
+	}
+
+	public void setCliente(Cliente cliente){
+
+		super.setCliente(cliente);
+
+	}
+
+	public Cliente getCliente(){
+
+		return super.getCliente();
+
+	}
+
+	public Chamada[] getChamada(){
+
+		return super.getChamada();
+
+	}
 	public boolean recarregar(float valor) {
 		Calendar atual = Calendar.getInstance();
 		if(valor >= 1) {
