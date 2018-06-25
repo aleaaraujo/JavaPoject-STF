@@ -56,7 +56,7 @@ public class Endereco{
 		String cep = "";
 		String cidade = "";
 		String estado =" ";
-		String UF[] = {"AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"};
+		String UF[] = {"AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO", "PR"};
 		int numero = 0;
 		int cont = 0;
 		int i;
@@ -114,10 +114,10 @@ public class Endereco{
 						estado = varLerString;
 					}
 				}
-				if(i == UF.length) {
-					System.out.printf("\nEstado Inexistente! Por favor, entre com o endereço novamente.\n");
-					continue;
-				}
+				//if(i == UF.length) {
+				//	System.out.printf("\nEstado Inexistente! Por favor, entre com o endereço novamente.\n");
+				//	continue;
+				//}
 			}
 
 			System.out.println ("Informe o nome da Cidade ");
