@@ -12,6 +12,21 @@ public class Pre extends LinhaTelefonica {
 	public Saldo getSaldo (){
 		return this.saldo;
 	}
+	public void setNumero (String numero){
+		super.setNumero(numero);
+	}
+	public String getNumero(){
+		return super.getNumero();
+	}
+	public void setCliente(Cliente cliente){
+		super.setCliente(cliente);
+	}
+	public Cliente getCliente(){
+		return super.getCliente();
+	}
+	public Chamada[] getChamadas(){
+		return super.getChamadas();
+	}
 	public String toString (){
 		String aux ="";
 		aux +=super.toString();
