@@ -24,8 +24,8 @@ public class Pre extends LinhaTelefonica {
 	public Cliente getCliente(){
 		return super.getCliente();
 	}
-	public Chamada[] getChamadas(){
-		return super.getChamadas();
+	public Chamada[] getChamada(){
+		return super.getChamada();
 	}
 	public String toString (){
 		String aux ="";
