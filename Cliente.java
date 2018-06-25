@@ -29,6 +29,12 @@ public class Cliente{
 	public String getNome() {
 		return this.nome;
 	}
+	public Endereco getEndereco(){
+		return this.endereco;
+	}
+	public void setEndereco(Endereco endereco){
+		this.endereco = endereco;
+	}
 	public String toString (){
 		String aux = "";
 		aux +="ID: "+this.clienteId +"\nCPF: "+this.cpf+"\nNOME: "+this.nome;
