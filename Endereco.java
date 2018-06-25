@@ -59,12 +59,10 @@ public class Endereco{
 		String UF[] = {"AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"};
 		int numero = 0;
 		int cont = 0;
-		int op;
 		int i;
 		boolean flag = true;
-		boolean flag2 = true;
-		String varLerString;
-		int varLerInt;
+		String varLerString = "";
+		int varLerInt = 0;
 
 		do{
 			System.out.println ("\nInforme a Rua/Av onde vc mora: ");
@@ -153,7 +151,7 @@ public class Endereco{
 				}
 				continue;
 			} else {
-                if(varLerString.length() < 8) {
+                if(varLerString.length() < 8 || varLerString.length() > 9) {
                     System.out.printf("\nCEP Incorreto! Por favor, entre com o endereço novamente.\n");
                     continue;
                 }
@@ -161,24 +159,8 @@ public class Endereco{
 				cep = varLerString;
 			}
 
-			while(flag2) { //loop infinito intencional
-                System.out.printf("\nOs dados acima estão corretos?\n Digite 1 -> p/ Sim ou 2 -> p/ Não\n Opção: ");
-                op = Leitura.lerInt();
-                switch(op) {
-                    case 1:
-                        flag2 = false;
-                        flag = false;
-                    break;
+			flag = false;
 
-                    case 2:
-                        System.out.printf("\nInsira novamente os dados!\n");
-                        flag2 = false;
-                    break;
-
-                    default:
-                        System.out.printf("\nOpção Inválida!\n");
-                }
-			}
 		}while(flag);
 
 		return new Endereco(rua,numero,cep,cidade,estado);
